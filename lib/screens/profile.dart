@@ -59,6 +59,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text("Profile", style: SupportWidget.semiBoldTextStyle()),
         centerTitle: true,
         backgroundColor: Colors.green[200],
