@@ -11,6 +11,7 @@ class SupportWidget {
     );
   }
 
+  // Checks Connectivity
   static Future<bool> hasInternet() async {
     var result = await Connectivity().checkConnectivity();
     if (result == ConnectivityResult.none) return false;
