@@ -67,7 +67,13 @@ class _AddUserDetailsScreenState extends State<AddUserDetailsScreen> {
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
-    // Do something when payment fails
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("Payment failed! Error: ${response.message}"),
+        backgroundColor: Colors.red,
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
   }
 
   final Razorpay _razorpay = Razorpay();
@@ -85,7 +91,12 @@ class _AddUserDetailsScreenState extends State<AddUserDetailsScreen> {
       'name': 'Tech Basket',
       'currency': 'USD',
       'description': widget.name,
-      'prefill': {'contact': phoneController.text, 'email': email},
+      'image': 'images/logo.png',
+      'prefill': {
+        'name': name,
+        'contact': phoneController.text,
+        'email': email,
+      },
     };
 
     _razorpay.open(options);
